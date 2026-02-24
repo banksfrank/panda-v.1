@@ -1,0 +1,37 @@
+name: Build Flutter APK
+
+on:
+   workflow_dispatch:
+   push:
+      branches:  [ "main" ]
+
+jobs:
+   build:
+      runs-on:  ubuntu-latest
+      steps:
+         - name: Checkout
+           uses: actions/checkout@v4 
+
+         - name: Setup Java
+           uses: actions/setup-java@4
+           with:
+               distribution: "temurin"
+               java-version: "17"
+
+         - name: Setup Flutter
+           uses: subosito/flutter-action@v2
+           with:
+               channel: "stable"
+               cache: true
+
+         - name: install dependencies
+           run: fluter pub get
+
+         - name: Build debug Apk
+           run: fluter build apk --debug
+
+         - name: Uplaod APK
+           uses: actions/upload-artifact@v4
+           with:
+               name: app-debug-apk
+               path: build/app/outputs/flutter-apk/app-debug.apk
