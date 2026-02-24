@@ -1,0 +1,45 @@
+
+[functions.seed_demo_profiles]
+enabled = true
+verify_jwt = true
+import_map = "./functions/seed_demo_profiles/deno.json"
+entrypoint = "./functions/seed_demo_profiles/index.ts"
+
+[functions.user_discover]
+enabled = true
+verify_jwt = true
+import_map = "./functions/user_discover/deno.json"
+entrypoint = "./functions/user_discover/index.ts"
+
+[functions.seed_demo_profiles_v2]
+enabled = true
+verify_jwt = true
+import_map = "./functions/seed_demo_profiles_v2/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/seed_demo_profiles_v2/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/seed_demo_profiles_v2/*.html" ]
+
+[functions.create_stripe_checkout_session]
+enabled = true
+verify_jwt = true
+import_map = "./functions/create_stripe_checkout_session/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/create_stripe_checkout_session/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/create_stripe_checkout_session/*.html" ]
+
+[functions.stripe_webhook]
+enabled = true
+verify_jwt = true
+import_map = "./functions/stripe_webhook/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/stripe_webhook/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/stripe_webhook/*.html" ]
