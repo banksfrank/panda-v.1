@@ -9,7 +9,7 @@ jobs:
    build:
       runs-on:  ubuntu-latest
       steps:
-         - name: Checkout
+         - name: Checkout repository
            uses: actions/checkout@v4 
 
          - name: Setup Java
@@ -21,14 +21,16 @@ jobs:
          - name: Setup Flutter
            uses: subosito/flutter-action@v2
            with:
-               channel: "stable"
-               cache: true
-
+              flutter-version: "3.19.0"
+              
+         - name: Verify Flutter
+           run: flutter --version             
+              
          - name: install dependencies
-           run: fluter pub get
+           run: flutter pub get
 
          - name: Build debug Apk
-           run: fluter build apk --debug
+           run: flutter build apk --debug
 
          - name: Uplaod APK
            uses: actions/upload-artifact@v4
